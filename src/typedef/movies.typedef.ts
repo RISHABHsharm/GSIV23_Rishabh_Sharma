@@ -1,6 +1,5 @@
 export interface IMovie {
   id: number;
-  image: string;
   title: string;
   poster_path: string;
   vote_average: number;
@@ -8,9 +7,9 @@ export interface IMovie {
 }
 
 export interface IMember {
-  id: string;
+  id: number;
   name: string;
-  known_for_department: string;
+  known_for_department?: string;
   job?: string;
 }
 

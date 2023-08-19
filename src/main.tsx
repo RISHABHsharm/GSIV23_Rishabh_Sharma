@@ -6,6 +6,7 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 import MovieDetailsPage from "./pages/movie-details/movie-details.page.tsx";
+import ErrorBoundary from "./components/error-boundary/error-boundary.component.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <ErrorBoundary>
+        <RouterProvider router={router} />
+      </ErrorBoundary>
     </Provider>
   </React.StrictMode>
 );
