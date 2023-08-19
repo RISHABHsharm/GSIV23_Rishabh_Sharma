@@ -3,7 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, searchMoviesByName } from "./redux/movies/movies.action";
 import { AppDispatch, RootState } from "./redux/store";
 import MovieCard from "./components/movie-card/movie-card.component";
-import { Box, Grid, AppBar, Toolbar, useTheme } from "@mui/material";
+import {
+  Box,
+  Grid,
+  AppBar,
+  Toolbar,
+  useTheme,
+  Typography,
+} from "@mui/material";
 import { appStyles } from "./App.styles";
 import CustomProgress from "./components/custom-progress/custom-progress.component";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -17,7 +24,7 @@ function App() {
   const styles = appStyles(useTheme());
   const navigate = useNavigate();
   const { loading, movies, page, searchedMovies } = useSelector(
-    (state: RootState) => state.movies
+    (state: RootState) => state.movies.moviesList
   );
   const [searchValue, setSearchValue] = useState("");
 
@@ -73,6 +80,11 @@ function App() {
           ))}
         </Grid>
       </InfiniteScroll>
+      {movies.length === 0 && !loading && (
+        <Typography variant="h5" textAlign="center">
+          No Movie Found
+        </Typography>
+      )}
     </Box>
   );
 }

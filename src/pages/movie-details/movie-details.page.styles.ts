@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material";
 
-export const appStyles = (theme: Theme) => {
+export const movieDetailsPageStyles = (theme: Theme) => {
   return {
     appBar: {},
     toolbar: {
@@ -13,13 +13,6 @@ export const appStyles = (theme: Theme) => {
     },
     homeIcon: {
       cursor: "pointer",
-    },
-    container: {
-      padding: "1rem",
-    },
-    movieContainer: {
-      display: "flex",
-      justifyContent: "center",
     },
   };
 };

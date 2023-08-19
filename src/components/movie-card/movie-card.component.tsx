@@ -3,10 +3,10 @@ import { movieCardStyles } from "./movie-card.component.styles";
 import { Box, Card } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { movieImageUrl } from "../../redux/api-helpers/api-constants";
-import { Movie } from "../../typedef/movies.typedef";
+import { IMovie } from "../../typedef/movies.typedef";
 
 type MovieCardProps = {
-  movieDetails: Movie,
+  movieDetails: IMovie,
 };
 
 const MovieCard = ({ movieDetails }: MovieCardProps) => {
@@ -14,7 +14,10 @@ const MovieCard = ({ movieDetails }: MovieCardProps) => {
   const styles = movieCardStyles();
 
   return (
-    <Card sx={styles.card} onClick={() => navigate(`/details`)}>
+    <Card
+      sx={styles.card}
+      onClick={() => navigate(`/details/${movieDetails.id}`)}
+    >
       <LazyLoadImage
         height="300"
         width="290"

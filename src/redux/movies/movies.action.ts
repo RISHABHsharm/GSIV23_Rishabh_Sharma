@@ -1,7 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { movieListUrl, searchMovieUrl } from "../api-helpers/api-constants";
+import {
+  movieDetailsUrl,
+  movieListUrl,
+  searchMovieUrl,
+} from "../api-helpers/api-constants";
 import axiosInstance from "../api-helpers/http-intercepter";
-import { SearchMovieActionProps } from "../../typedef/movies.typedef";
+import { ISearchMovieActionProps } from "../../typedef/movies.typedef";
 
 export const fetchMovies = createAsyncThunk(
   "movies/fetchMovies",
@@ -13,9 +17,19 @@ export const fetchMovies = createAsyncThunk(
 
 export const searchMoviesByName = createAsyncThunk(
   "movies/searchMoviesByName",
-  async ({ page, value }: SearchMovieActionProps) => {
+  async ({ page, value }: ISearchMovieActionProps) => {
     const response = await axiosInstance.get(
       `${searchMovieUrl}?query=${value}&page=${page}`
+    );
+    return response.data;
+  }
+);
+
+export const fetchMovieDetails = createAsyncThunk(
+  "movies/fetchMovieDetails",
+  async (movieId: string) => {
+    const response = await axiosInstance.get(
+      `${movieDetailsUrl}/${movieId}?append_to_response=casts`
     );
     return response.data;
   }
