@@ -2,7 +2,7 @@
 
 This is a simple movie browser application with which has infinite scroll feature and search bar to search the movies of user's choice. The details of the movie is shown in movie details page which will appear on the movie card click in the movie listing page.
 
-## Deployment Link : [Movies Browser](gsiv-23-rishabh-sharma.vercel.app)
+## Deployment Link : [Movies Browser](https://gsiv-23-rishabh-sharma.vercel.app)
 
 To run and test the application, follow these steps:
 
