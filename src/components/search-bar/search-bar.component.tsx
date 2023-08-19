@@ -13,7 +13,7 @@ type SearchBarProps = {
   updateSearchValue: (value: string) => void,
 };
 
-let timeoutId: number;
+let timeoutId: NodeJS.Timeout;
 
 const SearchBar = ({ searchValue, updateSearchValue }: SearchBarProps) => {
   const styles = searchBarStyles(useTheme());
